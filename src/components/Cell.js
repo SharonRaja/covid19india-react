@@ -1,7 +1,6 @@
 import {SPRING_CONFIG_NUMBERS} from '../constants.js';
 import {formatNumber, getStatistic} from '../utils/commonFunctions';
 
-// test
 import classnames from 'classnames';
 import equal from 'fast-deep-equal';
 import React from 'react';
