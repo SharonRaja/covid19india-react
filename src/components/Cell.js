@@ -25,17 +25,15 @@ const Cell = ({statistic, data, isPerMillion}) => {
       <animated.div className={classnames('delta', `is-${statistic}`)}>
         {spring.delta.interpolate((delta) =>
           delta > 0
-            ? '\u2191' +
-              formatNumber(
+            ? `\u25B2 ${formatNumber(
                 Math.floor(delta),
                 statistic === 'tested' ? 'short' : null
-              )
+              )}`
             : delta < 0
-            ? '\u2193' +
-              formatNumber(
+            ? `\u25BC ${formatNumber(
                 Math.floor(Math.abs(delta)),
                 statistic === 'tested' ? 'short' : null
-              )
+              )}`
             : ''
         )}
       </animated.div>
