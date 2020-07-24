@@ -20,16 +20,14 @@ function PureLevelItem({statistic, total, delta}) {
     <React.Fragment>
       <h5>{t(capitalize(statistic))}</h5>
       <animated.h4>
-        {statistic !== 'active' ? (
-          delta > 0 ? (
-            spring.delta.interpolate(
-              (delta) => `+${formatNumber(Math.floor(delta))}`
-            )
-          ) : (
-            <HeartFillIcon size={9} verticalAlign={2} />
-          )
+        {delta !== 0 ? (
+          spring.delta.interpolate((delta) => {
+            const change = Math.floor(delta);
+            if (change > 0) return `\u25B2 ${formatNumber(change)}`;
+            else return `\u25BC ${formatNumber(change)}`;
+          })
         ) : (
-          '\u00A0'
+          <HeartFillIcon size={9} verticalAlign={2} />
         )}
       </animated.h4>
       <animated.h1>
