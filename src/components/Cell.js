@@ -23,25 +23,23 @@ const Cell = ({statistic, data, isPerMillion}) => {
 
   return (
     <div className="cell statistic">
-      {statistic !== 'active' && (
-        <animated.div className={classnames('delta', `is-${statistic}`)}>
-          {spring.delta.interpolate((delta) =>
-            delta > 0
-              ? '\u2191' +
-                formatNumber(
-                  Math.floor(delta),
-                  statistic === 'tested' ? 'short' : null
-                )
-              : delta < 0
-              ? '\u2193' +
-                formatNumber(
-                  Math.floor(Math.abs(delta)),
-                  statistic === 'tested' ? 'short' : null
-                )
-              : ''
-          )}
-        </animated.div>
-      )}
+      <animated.div className={classnames('delta', `is-${statistic}`)}>
+        {spring.delta.interpolate((delta) =>
+          delta > 0
+            ? '\u2191' +
+              formatNumber(
+                Math.floor(delta),
+                statistic === 'tested' ? 'short' : null
+              )
+            : delta < 0
+            ? '\u2193' +
+              formatNumber(
+                Math.floor(Math.abs(delta)),
+                statistic === 'tested' ? 'short' : null
+              )
+            : ''
+        )}
+      </animated.div>
 
       <animated.div className="total">
         {spring.total.interpolate((total) =>
