@@ -2224,7 +2224,7 @@ abbr {
       }
 
       .switch-type,
-      .switch-statistic, {
+      .switch-statistic {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -3673,7 +3673,7 @@ footer {
   }
 
   .Home,
-  .State, {
+  .State {
     display: flex;
     flex-direction: column;
     margin-left: 0;
